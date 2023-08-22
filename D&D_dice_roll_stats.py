@@ -116,7 +116,7 @@ def calc():
 def quit_func():
     raise SystemExit
     gui.destroy()
-#Here is function to help validate that entries into the entry widgets are digits only:
+#Here is function to help validate that entries into the entry widgets are digits only.:
 def enter_only_digits(entry, action_type):
     if action_type == '1' and not entry.isdigit(): #if something is entered and it is not a digit
         return False
@@ -138,16 +138,16 @@ vcmd = (gui.register(enter_only_digits), '%P', '%d') #%P allows a good entry (di
 
 dice_quantity_label = tkinter.Label(gui, bg = 'white', bd = 3, relief = 'solid', text = "Number of dice:")
 dice_quantity_label.place(relx = 0.24, rely = 0, relheight = 0.05, relwidth = 0.25)
-dice_quantity_entry = tkinter.Entry(gui, textvariable=dice_quantity, validate = 'key', validatecommand=vcmd) #'key' causes the validation to occur upon being edited
+dice_quantity_entry = tkinter.Entry(gui, textvariable=dice_quantity, validate = 'key', validatecommand=vcmd) #'key' causes the validation to occur upon being edited, and vcmd is a true/false filter for letting entries through or not
 dice_quantity_entry.place(relx = 0.51, rely = 0, relheight = 0.05, relwidth = 0.25)
 dice_range_label = tkinter.Label(gui, bg = 'white', bd = 3, relief = 'solid', text = "Dice range:")
 dice_range_label.place(relx = 0.24, rely = 0.05, relheight = 0.05, relwidth = 0.25)
-dice_range_entry = tkinter.Entry(gui, textvariable=dice_range, validate = 'key', validatecommand=vcmd)#'key' causes the validation to occur upon being edited
+dice_range_entry = tkinter.Entry(gui, textvariable=dice_range, validate = 'key', validatecommand=vcmd)#'key' causes the validation to occur upon being edited, and vcmd is a true/false filter for letting entries through or not
 dice_range_entry.place(relx = 0.51, rely = 0.05, relheight = 0.05, relwidth = 0.25)
 
 calc_button = tkinter.Button(gui, text=' Calculate ', fg='black', bg='lightgreen', justify = 'center', relief = 'raised', command = lambda: calc())
 calc_button.place(relx = 0.8, rely = 0.02, relheight = 0.2, relwidth = 0.2)
-display = tkinter.Label(gui, bg = 'white', bd = 3, relief = 'solid', text = "", justify='center')
+display = tkinter.Label(gui, bg = 'white', bd = 3, relief = 'solid', text = "Please note that calculating 6 or more dice may take awhile...", justify='center')
 display.bind('<Configure>', lambda e: display.config(wraplength=display.winfo_width())) #this is to make the display wrap at the width of its window. Need to do it in separate line after this label is defined already.
 display.place(relx = 0.24, rely = 0.1, relheight = 0.1, relwidth = 0.52)
 
