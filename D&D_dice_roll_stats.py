@@ -8,7 +8,7 @@ from PIL import ImageTk, Image
 
 def calc():
     #Account for fields left blank or zeroes put in:
-    if (dice_quantity.get() == '') or (dice_range.get() == '') or (dice_quantity.get() == '0') or (dice_range.get() == '0'):
+    if (dice_quantity.get() == '') or (dice_range.get() == '') or (int(dice_quantity.get()) == 0) or (int(dice_range.get()) == 0):
         display.config(text="Please enter non-zero digits for both dice quantity and dice range")
         return
     #see if only digits were entered. This is redundant now that I have the digit validation working, but I'll keep it in for now:
